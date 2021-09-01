@@ -22,6 +22,36 @@
 	- docs explaining features of the project with screenshots
 	- software requirements document 
 	- appropriate uml diagrams
+## Resume : 
+1. Tech Stack : HTML , CSS , Javascript , d3.js , React JS , R , Java 
+	      : MongoDB , Firebase, Apollo Server , Apollo Client, GraphQL, Node JS , Express JS
+2. About me : Aspiring Web Developer , keen to learn new technologies related to the web. Learning to create and display interactive visualizations in the web.
+
+3. Projects: 
+	- GrowYourBusiness: HTML , CSS , JS , D3 JS
+	- Data Analytics of Sales Data : R
+	- Customer Relationship Management tool : GMERN
+	- Distributor Level Operations Manager : MERN ,Charts JS, D3 JS
+	- Covid 19 data analytics with Relief Support : MERN , Charts JS , D3 JS
+	- Portfolio Page and Pitcher Page : React, Firebase
+
+## CV: 
+1. same tech stack , same about me
+2. Projects: 
+	- sem2: 
+		-- CSE2003: C++
+	- sem3: 
+		-- CSE2004 : PHP,MySQL
+		-- CSE2005 : Java, Maven
+	- sem4: 
+		-- CSE3001 : PHP,MySQL
+		-- CSE3013 : Python, PyTorch,Tensorflow
+		-- CSE3021 : Python, PyTorch,Tensorflow
+	- sem5: 
+		-- CSE2006 : 8086 Assembly
+		-- CSE3501 : Python, Django
+		-- CSE3009 : Arduino, C
+		-- PHY1901 : 
 
 
 ## References: 
