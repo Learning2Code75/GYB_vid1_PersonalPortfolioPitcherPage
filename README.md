@@ -61,27 +61,11 @@
 	https://youtu.be/Nl54MJDR2p8
 3. React Firebase image management: 
 	https://youtu.be/vUe91uOx7R0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+4. React Firebase learning:
+	https://youtu.be/VqgTr-nd7Cg 
+	https://youtu.be/f7T48W0cwXM 
+	https://youtu.be/xP3cxbDUtrc 
+	https://youtu.be/tbvguOj8C-o (4 projects)
 
 # Getting Started with Create React App
 
