@@ -12,8 +12,9 @@
 4. cv, resume
 5. navbar
 6. social media bar
-7. work grid with work cards
-8. pitcher page: 
+7. work grid with work cards(data fetch firebase)
+   - onclicking on card ===> directed to pitcher page for project(user guide , video) ((data from firebase))
+8. pitcher page:(data fetch from firebase) 
 	- name 
 	- tech stack used 
 	- explaination of goal and journey of development
@@ -22,6 +23,23 @@
 	- docs explaining features of the project with screenshots
 	- software requirements document 
 	- appropriate uml diagrams
+9. (admin panel to add data to work , pitcher page)
+10. personal portfolio, pitcher samples page: 
+   - a page to choose designs and models for building your own personal portfolio, pitcher pages
+   - homepage , navbar , work section , about, contact , social , resume ,cv, 
+   - pitcher page in different forms: 
+     -- docs format including references/inspiration srs, sds ,use case description, task analysis, HTA, Storyboarding
+     -- user guide format
+     -- video guide format	
+     
+     
+##execution:
+1. admin panel : adds workcard to work, adds pitcher page section to pitcher page of project
+  - password to access admin page: firebase auth 
+2. sample page : cart to add templates , print pdf 
+
+
+     
 ## Resume : 
 1. Tech Stack : HTML , CSS , Javascript , d3.js , React JS , R , Java 
 	      : MongoDB , Firebase, Apollo Server , Apollo Client, GraphQL, Node JS , Express JS
@@ -57,15 +75,26 @@
 ## References: 
 1. CSS cards:
 	https://youtu.be/5DEq5cWNYt8 
-2. React responsive design: 
-	https://youtu.be/Nl54MJDR2p8
-3. React Firebase image management: 
+2. React Firebase image management: 
 	https://youtu.be/vUe91uOx7R0
+3. React responsive design: 
+	https://youtu.be/Nl54MJDR2p8
 4. React Firebase learning:
+	https://youtu.be/PKwu15ldZ7k(auth)
 	https://youtu.be/VqgTr-nd7Cg 
 	https://youtu.be/f7T48W0cwXM 
 	https://youtu.be/xP3cxbDUtrc 
-	https://youtu.be/tbvguOj8C-o (4 projects)
+	https://youtu.be/tbvguOj8C-o
+	 (4 projects)
+
+
+#Firebase Information:
+1. project account: neelchoksi1611@gmail.com
+2. project name: learning-firebase-img-crud
+3. docs:
+https://firebase.google.com/docs/web/setup#available-libraries 
+4. 
+
 
 # Getting Started with Create React App
 
