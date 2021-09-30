@@ -20,6 +20,8 @@ function Navbar(){
 				<Link className="nav-link" to="/about"><li>About Me</li></Link>
 				<Link className="nav-link" to="/work"><li>My Work</li></Link>
 				<Link className="nav-link" to="/resume"><li>Resume</li></Link>
+				<Link className="nav-link" to="/sample"><li>Samples</li></Link>
+				
 				<li>
 					 <Button variant="contained" color="primary" href="mailto:neelchoksi1611@gmail.com" target="_top" startIcon={<MailOutlineIcon />}>
 					    Contact me
