@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+
+}
+.app{
+  background: #fafafa;
+  height: 100vh;
+}
+.app__header{
+  background: cyan;
+}
+.app__headerImage{
+  object-fit: contain;
+  background: white;
+  padding: 1.2rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.post{
+  max-width: 768px;
+  margin: 0 auto;
+  background: white;
+  border:  1px solid lightgray;
+  margin-bottom: 3rem;
+}
+
+.post__header{
+  display: flex;
+  align-items: center;
+  padding: 1.4rem;
+}
+.post__img{
+  border-top:  1px solid lightgray;
+  border-bottom:  1px solid lightgray;
+
+}
+.post__avatar{
+  margin: .6rem;
+}
+
+.post__text{
+  padding: 1.4rem;
+}
