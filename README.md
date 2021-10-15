@@ -24,7 +24,7 @@
 	- software requirements document 
 	- appropriate uml diagrams
 9. (admin panel to add data to work , pitcher page)
-10. personal portfolio, pitcher samples page: 
+10. personal portfolio, pitcher samples page: cart modal , add to cart , download pdf ,samples,change theme
    - a page to choose designs and models for building your own personal portfolio, pitcher pages
    - homepage , navbar , work section , about, contact , social , resume ,cv, 
    - pitcher page in different forms: 
