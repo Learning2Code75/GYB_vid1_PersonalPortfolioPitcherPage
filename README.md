@@ -5,16 +5,25 @@
 2. CSS
 3. Firebase
 
+## call to action: 
+1. view samples for portfolio page components, pitcher page
+2. change its theme :
+- colors of components according to your preference
+- input content you want in the sample
+4. add it to the cart : click add to cart
+5. go to cart --> preview your selected samples,download pdf
+6. email the pdf to me on my email 
+7. video explaining above + showing update in google sheet ,live refresh 
 ## Software Requirement Specificaiton: 
-1. home
+1. home --> grid for call to action 
 2. about
 3. contact
 4. cv, resume
 5. navbar
 6. social media bar
-7. work grid with work cards(data fetch firebase)
-   - onclicking on card ===> directed to pitcher page for project(user guide , video) ((data from firebase))
-8. pitcher page:(data fetch from firebase) 
+7. work grid with work cards(data fetch google sheets)
+   - onclicking on card ===> directed to pitcher page for project(user guide , video) ((data from google sheets))
+8. pitcher page:(data fetch from google sheets) 
 	- name 
 	- tech stack used 
 	- explaination of goal and journey of development
@@ -23,8 +32,7 @@
 	- docs explaining features of the project with screenshots
 	- software requirements document 
 	- appropriate uml diagrams
-9. (admin panel to add data to work , pitcher page)
-10. personal portfolio, pitcher samples page: cart modal , add to cart , download pdf ,samples,change theme
+9. personal portfolio, pitcher samples page: cart modal(fetch from firebase) , add to cart , download pdf ,samples,change theme , input content for the sample-->post to firebase
    - a page to choose designs and models for building your own personal portfolio, pitcher pages
    - homepage , navbar , work section , about, contact , social , resume ,cv, 
    - pitcher page in different forms: 
@@ -78,14 +86,14 @@
 2. React Firebase image management: 
 	https://youtu.be/vUe91uOx7R0(done)
 3. React responsive design: 
-	https://youtu.be/Nl54MJDR2p8(in progress) 
+	 https://youtu.be/hQjlM-8C4Ps 
 4. React Firebase learning:
-	https://youtu.be/VqgTr-nd7Cg (done) 
-	https://youtu.be/f7T48W0cwXM (in progress)
-	https://youtu.be/xP3cxbDUtrc 
-	https://youtu.be/tbvguOj8C-o
-	auth:https://youtu.be/PKwu15ldZ7k 
-	 (4 projects)
+- https://youtu.be/VqgTr-nd7Cg (done) 
+- insta:https://youtu.be/f7T48W0cwXM (in progress)
+- linkedin:https://youtu.be/xP3cxbDUtrc (in progress)
+- linked in,slack,snapchat:https://youtu.be/tbvguOj8C-o
+- auth:https://youtu.be/PKwu15ldZ7k 
+	
 
 
 # Firebase Information:
@@ -97,7 +105,8 @@ https://firebase.google.com/docs/reference/js/firestore_
 
 # Framer Motion React Animations:
 1. https://www.framer.com/motion/
-
+# svg images: 
+https://freesvg.org/1534129544 
 
 # Getting Started with Create React App
 
