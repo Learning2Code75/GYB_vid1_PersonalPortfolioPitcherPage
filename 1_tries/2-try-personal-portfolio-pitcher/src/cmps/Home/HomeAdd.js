@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import {SketchPicker} from 'react-color'
 import {ChromePicker} from 'react-color'
 
+
+
 function HomeAdd() {
     const [HomeCompData,setHomeCompData] = useState({
         name:"FirstName LastName",
@@ -55,6 +57,7 @@ function HomeAdd() {
 
     return (
         <div className="HomeAdd">
+            
             <div className="createHomeForm">
                 <h2>Home Component Data</h2>
                 <div className="form-grid">

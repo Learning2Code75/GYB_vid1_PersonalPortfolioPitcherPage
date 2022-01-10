@@ -125,6 +125,24 @@ nav a:hover{
    background-color: var(--black);
 }
 
+.CreateHeader{
+  background: linear-gradient(0.25turn, #000000, var(--blue),#000000);
+  color:white;
+  font-weight: 900;
+  padding: 1.5rem calc((100vw - 1200px)/2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin : 1rem 0;
+  font-size:2rem;
+  border-radius: 1rem;
+  width: 90vw;
+}
+
+
+
+
+
 .loginPage{
   padding: 0.5rem calc((100vw - 1200px)/2);
   display: flex;
