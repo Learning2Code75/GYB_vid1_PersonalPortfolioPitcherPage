@@ -6,7 +6,7 @@ import CreateHeader from '../cmps/CreateHeader'
 function CreatePost() {
     return (
         <div className="createPage">
-            <h1>Add to Components</h1>
+            <h1>Update and Preview Components</h1>
             <CreateHeader
                 content="Home Component"
             />
@@ -32,7 +32,7 @@ function CreatePost() {
                 <li>github </li>
              </ul>
 
-
+             <h1>Add,Update,Delete and Preview Components</h1>
             <CreateHeader
                 content="Certificates Component"
             />
@@ -125,6 +125,8 @@ function CreatePost() {
             <ul>
                 <li> (all of work card) + [title,subtitle, image, text, list, link] </li>
             </ul>
+
+            <h1>Add,Update,Delete and View Components</h1>
 
             <CreateHeader
                 content="Images Component"

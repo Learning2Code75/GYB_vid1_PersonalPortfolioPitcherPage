@@ -63,7 +63,11 @@ function HomeAdd() {
                 <div className="form-grid">
                     <div className="inputCD">
                         <label>Name:</label>
-                        <input placeholder="Full Name"></input>
+                        <input 
+                            placeholder="Full Name"
+                            onChange={(e)=>{  }
+                            
+                        }></input>
                     </div>
 
                     <div className="inputCD">
@@ -143,7 +147,7 @@ function HomeAdd() {
 
                     <div className="submit-div">
                         <h3>Confirm Data , Theme , UI </h3>
-                        <button className="btn">Confirm</button>
+                        <button className="btn" >Confirm</button>
                     </div>
                     
                 </div>

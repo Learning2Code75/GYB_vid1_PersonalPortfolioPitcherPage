@@ -36,9 +36,6 @@ function App() {
         <Route path="/create" element={<CreatePost/>} ></Route>
         <Route path="/login" element={<Login isAuth={isAuth} setIsAuth={setIsAuth} />} ></Route>
         <Route path="/samples" element={<Samples/>} ></Route>
-
-
-
       </Routes>
     </Router>
   );
