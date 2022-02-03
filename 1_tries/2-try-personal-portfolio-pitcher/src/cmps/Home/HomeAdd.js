@@ -1,10 +1,12 @@
 import React,{useState} from 'react'
 import {SketchPicker} from 'react-color'
 import {ChromePicker} from 'react-color'
+import {addDoc} from 'firebase/firestore'
 
 
 
 function HomeAdd() {
+    // this state data should be set from the firebase whenever user presses submit or on page refresh
     const [HomeCompData,setHomeCompData] = useState({
         name:"FirstName LastName",
         photo:{
@@ -18,7 +20,7 @@ function HomeAdd() {
             nameTheme:"#ffccff",
             photoTheme:"#ffccff",
             positionTheme:"#ffcccf",
-            personalPitchTheme:"#ffccff"            
+            personalPitchTheme:"#ffccff"
         },
         ui:"ui1"
     })
@@ -55,32 +57,48 @@ function HomeAdd() {
     //     setHomeCompData({...HomeCompData,theme:{photoTheme:newColor}})
     // }
 
+    //method to submit the state of home component data to firestore
+    const createHomePage =async ()=>{
+
+    }
+
     return (
         <div className="HomeAdd">
-            
             <div className="createHomeForm">
                 <h2>Home Component Data</h2>
                 <div className="form-grid">
                     <div className="inputCD">
                         <label>Name:</label>
-                        <input 
+                        <input
                             placeholder="Full Name"
-                            onChange={(e)=>{  }
-                            
-                        }></input>
+                            onChange={(e)=>{
+                                setHomeCompData({...HomeCompData,name:e.target.value})}}
+                        ></input>
                     </div>
 
                     <div className="inputCD">
                         <label>Position:</label>
-                        <input placeholder="(Ex.Full Stack Developer)"></input>
+                        <input
+                        placeholder="(Ex.Full Stack Developer)"
+                        onChange={(e)=>{
+                            setHomeCompData({...HomeCompData,position:e.target.value})}
+                        }></input>
                     </div>
                     <div className="inputCD">
                         <label>Personal Pitch:</label>
-                        <input placeholder="Personal Pitch"></input>
+                        <input placeholder="Personal Pitch"
+                              onChange={(e)=>{
+                                setHomeCompData({...HomeCompData,personalPitch:e.target.value})}
+                        }></input>
                     </div>
+
                     <div className="inputCD">
                         <label>Image URL:</label>
-                        <input placeholder="Image URL"></input>
+                        <input
+                         placeholder="Image URL"
+                         onChange={(e)=>{
+                           setHomeCompData({...HomeCompData,photo:{...HomeCompData.photo,imgUrl:e.target.value}})}
+                         }></input>
                     </div>
                     {/* <div className="inputCD">
                         <label>Image Description:</label>
@@ -96,7 +114,7 @@ function HomeAdd() {
                             {/* <button className="btn-sm" onClick={homeThemeChange}>Change</button> */}
                             <SketchPicker
                                 color={HomeCompData.theme.homecompBackground}
-                                onChange={newColor => {setHomeCompData({...HomeCompData,theme:{...HomeCompData.theme,homecompBackground:newColor.rgb}}) 
+                                onChange={newColor => {setHomeCompData({...HomeCompData,theme:{...HomeCompData.theme,homecompBackground:newColor.rgb}})
                                     // console.log(HomeCompData)
                                 } }
                             />
@@ -140,18 +158,10 @@ function HomeAdd() {
                                 <button className="btn-sm" onClick={()=>{setHomeCompData({...HomeCompData,ui:"ui2"})}}>UI 2</button>
                                 <button className="btn-sm" onClick={()=>{setHomeCompData({...HomeCompData,ui:"ui3"})}}>UI 3</button>
                                 <button className="btn-sm" onClick={()=>{setHomeCompData({...HomeCompData,ui:"ui4"})}}>UI 4</button>
-                        </div>  
-
-
+                        </div>
                     </div>
-
-                    <div className="submit-div">
-                        <h3>Confirm Data , Theme , UI </h3>
-                        <button className="btn" >Confirm</button>
-                    </div>
-                    
-                </div>
-                <div className={HomeCompData.ui} 
+            </div>
+                <div className={HomeCompData.ui}
                     style={{backgroundColor:`rgba(${HomeCompData.theme.homecompBackground.r},${HomeCompData.theme.homecompBackground.g},${HomeCompData.theme.homecompBackground.b},${HomeCompData.theme.homecompBackground.a})`}}
                 >
                     <h1 style={{color:`${HomeCompData.theme.nameTheme}`}} >{HomeCompData.name}</h1>
@@ -160,11 +170,19 @@ function HomeAdd() {
                     <img src={HomeCompData.photo.imgUrl} style={{border:`2px solid ${HomeCompData.theme.photoTheme}`}} />
                     {/* <h3 style={{color:`${HomeCompData.theme.photoTheme}`}}>{HomeCompData.photo.imgDesc}</h3> */}
                 </div>
-         
+
+
             {/* {<pre>
                 {JSON.stringify(HomeCompData, null, 2)}
             </pre>} */}
             </div>
+
+            <div className="submit-div">
+                <h3>Confirm Data , Theme , UI </h3>
+                <button className="btn" >Confirm</button>
+            </div>
+
+
         </div>
     )
 }

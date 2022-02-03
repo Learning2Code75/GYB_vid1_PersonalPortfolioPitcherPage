@@ -3,7 +3,7 @@
 	--white : #ffffff;
 	--blue  : #008cff;
 	--green : #78ee18;
-  --red : #ff2211; 
+  --red : #ff2211;
 	--sample3_background :#d1caa1 ;
 	--sample3_card :#306bac;
 	--sample3_text : #222222;
@@ -189,6 +189,10 @@ nav a:hover{
   background-color: var(--white);
   box-shadow: -4px 4px 16px rgba(0,0,0,.5);
 }
+.submit-div{
+	margin-top : 2rem;
+}
+
 .createHomeForm .form-grid{
   display:flex;
   flex-direction:column;
@@ -204,7 +208,7 @@ nav a:hover{
   .createHomeForm .form-grid .inputCD{
     flex-direction: column;
   }
-  
+
 .createHomeForm .form-grid{
   width: 80vw;
 }
