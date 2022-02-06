@@ -1,29 +1,13 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {SketchPicker} from 'react-color'
 import {ChromePicker} from 'react-color'
-import {addDoc} from 'firebase/firestore'
-
+import {doc,updateDoc,addDoc,getDocs,collection} from 'firebase/firestore'
+import {db} from '../../firebase-config';
+import {useNavigate} from 'react-router-dom';
 
 
 function HomeAdd() {
-    // this state data should be set from the firebase whenever user presses submit or on page refresh
-    const [HomeCompData,setHomeCompData] = useState({
-        name:"FirstName LastName",
-        photo:{
-            imgUrl:"https://picsum.photos/200",
-            imgDesc:"Image Desc"
-        },
-        position:"Full Stack Webdev",
-        personalPitch:"personal pitch paragraph is this paragraph",
-        theme:{
-            homecompBackground:{r:0,g:0,b:0,a:100},
-            nameTheme:"#ffccff",
-            photoTheme:"#ffccff",
-            positionTheme:"#ffcccf",
-            personalPitchTheme:"#ffccff"
-        },
-        ui:"ui1"
-    })
+
     // const generateRandomColor =()=> {
     //     const hexA = ['a','b','c','d','e','f','0','1','2','3','4','5','6','7','8','9'];
     //     let res = "#";
@@ -57,10 +41,83 @@ function HomeAdd() {
     //     setHomeCompData({...HomeCompData,theme:{photoTheme:newColor}})
     // }
 
-    //method to submit the state of home component data to firestore
-    const createHomePage =async ()=>{
+    // this state data should be set from the firebase whenever user presses submit or on page refresh
 
+
+    const [HomeCompData,setHomeCompData] = useState({
+        name:"FirstName LastName",
+        photo:{
+            imgUrl:"https://picsum.photos/200",
+            imgDesc:"Image Desc"
+        },
+        position:"Full Stack Webdev",
+        personalPitch:"personal pitch paragraph is this paragraph",
+        theme:{
+            homecompBackground:{r:0,g:0,b:0,a:100},
+            nameTheme:"#ffccff",
+            photoTheme:"#ffccff",
+            positionTheme:"#ffcccf",
+            personalPitchTheme:"#ffccff"
+        },
+        ui:"ui1"
+    })
+    const homeComponentCollectionRef = collection(db,"homeComponent");
+    let homeComponentElemID = "";
+    let oldhomeComponentData;
+    useEffect(()=>{
+      const getHomeComponentData = async ()=>{
+        const data = await getDocs(homeComponentCollectionRef);
+        const dataArray = await data.docs.map((doc)=>({...doc.data(), id:doc.id}));
+        const homeElem = await dataArray[0];
+        console.log(homeElem);
+        homeComponentElemID = await homeElem.id;
+        oldhomeComponentData = await homeElem;
+        await setHomeCompData(homeElem);
+      }
+      getHomeComponentData();
+    },[])
+
+    //method to submit the state of home component data to firestore
+    let navigate = useNavigate();
+    const updateHomePage = async (homeComponentElemID,oldhomeComponentData)=>{
+        const homeCompDoc = doc(collection(db,"homeComponent",homeComponentElemID));
+        const {name,photo,position,personalPitch,theme,ui} = HomeCompData;
+        await updateDoc(
+          homeCompDoc,
+          {
+            name,
+            photo,
+            position,
+            personalPitch,
+            theme,
+            ui
+          }
+        )
+
+        navigate("/");
     }
+/*
+HomeCompData{
+    name:"FirstName LastName",
+    photo:{
+        imgUrl:"https://picsum.photos/200",
+        imgDesc:"Image Desc"
+    },
+    position:"Full Stack Webdev",
+    personalPitch:"personal pitch paragraph is this paragraph",
+    theme:{
+        homecompBackground:{r:0,g:0,b:0,a:100},
+        nameTheme:"#ffccff",
+        photoTheme:"#ffccff",
+        positionTheme:"#ffcccf",
+        personalPitchTheme:"#ffccff"
+    },
+    ui:"ui1"
+}
+
+*/
+
+
 
     return (
         <div className="HomeAdd">
@@ -179,7 +236,7 @@ function HomeAdd() {
 
             <div className="submit-div">
                 <h3>Confirm Data , Theme , UI </h3>
-                <button className="btn" >Confirm</button>
+                <button className="btn" onClick={()=>{updateHomePage(homeComponentElemID,oldhomeComponentData)}} >Confirm Changes</button>
             </div>
 
 
