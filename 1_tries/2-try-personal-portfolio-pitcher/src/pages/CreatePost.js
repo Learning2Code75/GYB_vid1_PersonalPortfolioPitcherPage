@@ -3,6 +3,11 @@ import HomeAdd from '../cmps/Home/HomeAdd'
 import ImageAdd from '../cmps/Images/ImagesAdd'
 import ImageView from '../cmps/Images/ImagesView'
 import CreateHeader from '../cmps/CreateHeader'
+
+import Projects from '../cmps/Projects/ViewProjects.js';
+
+
+
 function CreatePost() {
     return (
         <div className="createPage">
@@ -87,37 +92,10 @@ function CreatePost() {
             <CreateHeader
                 content="Project Component"
             />
-            <h1>this project - portfolio builder product</h1>
-            <div>-</div>
-            <h1>grow your business product</h1>
-            <div>-</div>
-            
-            <h1>crm product </h1>
-            <div>-</div>
 
-            <h1>Sem 1--> sem 6 projects </h1>
-            <div>-</div>
-
-            <h1>Freelancing projects  </h1>
-
-            <ul>
-                <li>invoice - bakery shop</li>
-                <li>sales order - kiaana</li>
-
-            </ul>
-            <div>-</div>
+            <Projects />
 
 
-
-
-            <ul>
-                <li>name, date, description , photo, link to pitcher , actual link , github link 1 </li>
-                <li>name, date, description , photo, link to pitcher , actual link , github link 2 </li>
-                <li>name, date, description , photo, link to pitcher , actual link , github link 3 </li>
-                <li>name, date, description , photo, link to pitcher , actual link , github link 4 </li>
-
-
-            </ul>
 
             <CreateHeader
                 content="Pitcher Page for Project x"

@@ -169,6 +169,34 @@ why is it a horizontally scaling nosql document database in the cloud
 ### work experience compoenent [add , update ,delete , preview]
 
 ### projects compoenent
+- grid of projects with the details :
+for add , update :  
+1. name
+2. from date
+3. to date
+4. one line pitch (description)
+5. photourl
+6. link to pitcher page
+7. actual link
+8. github link
+9. preview pitcher page
+10. theme
+for preview
+- show above in cards
+
+## pitcher page comeponent
+- seen for only the one clicked grid card for project
+
+
+for add , update :
+1. name , from to date, github link , deployed link , actual link , pitcher statement from the project card
+2. google slides link to embed pitcher Presentation(slide format)
+3. youtube video link to embed pitcher presenetation (video format)
+4. explain how to use the project, what the project is about, srs doc, sds doc , system design , user selling proposition in the content grid : (manual found with every product) add , update these grid cards as many as desired
+- content grid card can be of form : [Title / Subtitle/ ImageUrl/Text/List/ Link/YouTube video link]
+5. theme 
+for preview:
+- show above in a black box
 
 
 ### contact compoenent
