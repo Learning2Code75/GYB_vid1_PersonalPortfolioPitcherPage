@@ -1,5 +1,7 @@
 import React from 'react'
 import HomeAdd from '../cmps/Home/HomeAdd'
+// import Certificate from '../cmps/Certificate/CertificateAdd';
+
 import ImageAdd from '../cmps/Images/ImagesAdd'
 import ImageView from '../cmps/Images/ImagesView'
 import CreateHeader from '../cmps/CreateHeader'
@@ -36,6 +38,7 @@ function CreatePost() {
             <CreateHeader
                 content="Certificates Component"
             />
+            
             <ul>
                 <li>title, organization 1, link </li>
                 <li>title, organization 2, link </li>
@@ -91,7 +94,7 @@ function CreatePost() {
             <div>-</div>
             <h1>grow your business product</h1>
             <div>-</div>
-            
+
             <h1>crm product </h1>
             <div>-</div>
 

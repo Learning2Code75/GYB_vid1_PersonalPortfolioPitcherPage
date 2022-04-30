@@ -23,11 +23,11 @@ function App() {
     <Router>
       <nav>
         <NavLink to="/" >Home</NavLink>
-        {isAuth && <NavLink to="/create">Create</NavLink>}
-        {isAuth && <NavLink to="/samples">samples</NavLink>}
+        { <NavLink to="/create">Create</NavLink>}
+        { <NavLink to="/samples">samples</NavLink>}
 
-        {!isAuth ? <NavLink to="/login">login</NavLink>: <button className="btn-logout" onClick={signUserOut}>Logout </button>}
-        
+        {/* <NavLink to="/login">login</NavLink>: <button className="btn-logout" onClick={signUserOut}>Logout </button>*/}
+
 
 
       </nav>
