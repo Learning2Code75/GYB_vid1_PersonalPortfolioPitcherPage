@@ -118,6 +118,35 @@ https://freesvg.org/1534129544
 2. authentication
 3. firestore db
 
+# doc refs
+1. firebase auth:https://firebase.google.com/docs/auth/where-to-start
+2. react router dom: https://reactrouter.com/docs/en/v6/getting-started/overview
+3. react router active : https://youtu.be/ZpBuaYkW09k
+4. firebase schema:
+- https://youtu.be/Ofux_4c94FI?list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ
+- https://youtu.be/T-GfSkC1JpE
+- https://youtube.com/playlist?list=PLpPVLI0A0OkJ-bu1zSiknRYEUIy33gCwp
+- https://youtube.com/playlist?list=PLqFvlDFoiZ-2SAX7YXCYtb28K4IooCIlS
+
+
+# doc refs following
+4. firebase schema
+- https://youtu.be/Ofux_4c94FI?list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ
+what is cloud firestore?
+-
+why is it a horizontally scaling nosql document database in the cloud
+
+
+
+
+- https://youtu.be/T-GfSkC1JpE
+
+- https://youtube.com/playlist?list=PLpPVLI0A0OkJ-bu1zSiknRYEUIy33gCwp
+
+
+- https://youtube.com/playlist?list=PLqFvlDFoiZ-2SAX7YXCYtb28K4IooCIlS
+
+
 
 # implementation
 ## react 1
@@ -131,6 +160,8 @@ https://freesvg.org/1534129544
 4. personal pitch
 5. theme
 
+- preview done
+- update [to be implemented]
 
 
 ### about compoenent
@@ -138,6 +169,34 @@ https://freesvg.org/1534129544
 ### work experience compoenent [add , update ,delete , preview]
 
 ### projects compoenent
+- grid of projects with the details :
+for add , update :  
+1. name
+2. from date
+3. to date
+4. one line pitch (description)
+5. photourl
+6. link to pitcher page
+7. actual link
+8. github link
+9. preview pitcher page
+10. theme
+for preview
+- show above in cards
+
+## pitcher page comeponent
+- seen for only the one clicked grid card for project
+
+
+for add , update :
+1. name , from to date, github link , deployed link , actual link , pitcher statement from the project card
+2. google slides link to embed pitcher Presentation(slide format)
+3. youtube video link to embed pitcher presenetation (video format)
+4. explain how to use the project, what the project is about, srs doc, sds doc , system design , user selling proposition in the content grid : (manual found with every product) add , update these grid cards as many as desired
+- content grid card can be of form : [Title / Subtitle/ ImageUrl/Text/List/ Link/YouTube video link]
+5. theme 
+for preview:
+- show above in a black box
 
 
 ### contact compoenent
@@ -150,23 +209,3 @@ https://freesvg.org/1534129544
 
 
 ### images component [add, update , delete, view]
-
-
-
-
-# learning
-
-
-1. firebase auth:https://firebase.google.com/docs/auth/where-to-start
-2. react router dom: https://reactrouter.com/docs/en/v6/getting-started/overview
-3. react router active : https://youtu.be/ZpBuaYkW09k
-4. firebase schema:
-- https://youtu.be/Ofux_4c94FI?list=PLl-K7zZEsYLluG5MCVEzXAQ7ACZBCuZgZ
-
-
-
-- https://youtu.be/T-GfSkC1JpE
-- https://youtube.com/playlist?list=PLpPVLI0A0OkJ-bu1zSiknRYEUIy33gCwp
-- https://youtube.com/playlist?list=PLqFvlDFoiZ-2SAX7YXCYtb28K4IooCIlS
-
-5. firebase CRUD : https://youtu.be/jCY6DH8F4oc
