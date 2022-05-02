@@ -89,6 +89,7 @@
 	 https://youtu.be/hQjlM-8C4Ps
 4. React Firebase learning:
 - https://youtu.be/VqgTr-nd7Cg (done)
+- https://youtu.be/D9W7AFeJ3kk 
 - insta:https://youtu.be/f7T48W0cwXM (in progress)
 - linkedin:https://youtu.be/xP3cxbDUtrc (in progress)
 - linked in,slack,snapchat:https://youtu.be/tbvguOj8C-o
