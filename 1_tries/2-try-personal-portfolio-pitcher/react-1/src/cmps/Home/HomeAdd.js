@@ -79,6 +79,7 @@ function HomeAdd() {
 
     //method to submit the state of home component data to firestore
     let navigate = useNavigate();
+
     const updateHomePage = async (homeComponentElemID,oldhomeComponentData)=>{
         const homeCompDoc = doc(collection(db,"homeComponent",homeComponentElemID));
         const {name,photo,position,personalPitch,theme,ui} = HomeCompData;

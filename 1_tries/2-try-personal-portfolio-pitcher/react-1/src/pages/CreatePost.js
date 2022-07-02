@@ -1,12 +1,16 @@
 import React from 'react'
 import HomeAdd from '../cmps/Home/HomeAdd'
 // import Certificate from '../cmps/Certificate/CertificateAdd';
+import AboutUpdate from '../cmps/About/AboutUpdate'
+import Projects from '../cmps/Projects/ViewProjects.js';
+
+
+
 
 import ImageAdd from '../cmps/Images/ImagesAdd'
 import ImageView from '../cmps/Images/ImagesView'
 import CreateHeader from '../cmps/CreateHeader'
 
-import Projects from '../cmps/Projects/ViewProjects.js';
 
 
 
@@ -22,15 +26,12 @@ function CreatePost() {
             <CreateHeader
                 content="About Component"
             />
-            <ul>
-                <li>Current position</li>
-                <li>Dev langs</li>
-                <li>Database</li>
-                <li>soft skills</li>
-             </ul>
+            <AboutUpdate/>
+
             <CreateHeader
                 content="Contact Component"
             />
+
             <ul>
                 <li>email</li>
                 <li>number</li>
@@ -106,15 +107,18 @@ function CreatePost() {
             <Projects />
 
 
+            {/* : modal popup for the pitcher page :
+              <CreateHeader
+                  content="Pitcher Page for Project x"
+              />
+              <ul>
+                  <li> (all of work card) + [title,subtitle, image, text, list, link] </li>
+              </ul>
 
-            <CreateHeader
-                content="Pitcher Page for Project x"
-            />
-            <ul>
-                <li> (all of work card) + [title,subtitle, image, text, list, link] </li>
-            </ul>
+              <h1>Add,Update,Delete and View Components</h1>
 
-            <h1>Add,Update,Delete and View Components</h1>
+            */}
+
 
             <CreateHeader
                 content="Images Component"
