@@ -1,5 +1,5 @@
 :root{
-	--black : #000000;
+	--black : #1D1D1D;
 	--white : #ffffff;
 	--blue  : #008cff;
 	--green : #78ee18;
@@ -110,6 +110,7 @@ nav a:hover{
   border-radius: .5rem;
   font-weight: bold;
   cursor:pointer;
+	transition: 300ms ease-in;
 }
 .btn-sm{
   font-size:1rem;

@@ -191,3 +191,9 @@ for preview:
 
 ## <i>View , Use </i>
 ### Login component
+
+
+# FUTURE SCOPE
+<hr/>
+##1. Image compression
+- before uploading image to firebase, compress it at the client end .
