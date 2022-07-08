@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {storage,db} from '../../firebase-config'
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc, collection,addDoc, serverTimestamp } from "firebase/firestore";
@@ -7,10 +7,53 @@ import { doc, setDoc, collection,addDoc, serverTimestamp } from "firebase/firest
 function ImagesAdd() {
   const [file,setFile] = useState("");
   const [imgData,setImgData] = useState({});
+  const [per,setPer] = useState(null)
 
-  const addImage= async(downloadURL)=>{
-    setImgData({imgUrl:downloadURL})
+  useEffect(()=>{
+    const uploadFile = ()=>{
+      const name = new Date().getTime() +'_'+ file.name;
+      //uploading img to storage
+      const storageRef = ref(storage, name);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+      uploadTask.on('state_changed',
+        (snapshot) => {
+          // Observe state change events such as progress, pause, and resume
+          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log('Upload is ' + progress + '% done');
+          setPer(progress)
+          switch (snapshot.state) {
+            case 'paused':
+              console.log('Upload is paused');
+              break;
+            case 'running':
+              console.log('Upload is running');
+              break;
+            default:
+              break;
+          }
+        },
+        (error) => {
+          // Handle unsuccessful uploads
+          console.log(error)
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            // console.log('File available at', downloadURL);
+            // adding imgurl to img collection
+            setImgData((prev)=>({...prev,imgUrl:downloadURL}))
+          });
+        }
+      );
+    }
 
+    file&& uploadFile();
+
+  },[file])
+
+
+  const handleInputImage = async(e)=>{
+    e.preventDefault();
     try{
       await addDoc(collection(db,"imgComponent"),
         {
@@ -23,52 +66,9 @@ function ImagesAdd() {
     }
   }
 
-  const handleInputImage =  (e)=>{
-    e.preventDefault();
-    const name = new Date().getTime() +'_'+ file.name;
-    // console.log(name)
-
-    //uploading img to storage
-    const storageRef = ref(storage, name);
-    const uploadTask = uploadBytesResumable(storageRef, file);
-
-    uploadTask.on('state_changed',
-      (snapshot) => {
-        // Observe state change events such as progress, pause, and resume
-        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
-        switch (snapshot.state) {
-          case 'paused':
-            console.log('Upload is paused');
-            break;
-          case 'running':
-            console.log('Upload is running');
-            break;
-          default:
-            break;
-        }
-      },
-      (error) => {
-        // Handle unsuccessful uploads
-        console.log(error)
-      },
-      () => {
-        // Handle successful uploads on complete
-        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          // console.log('File available at', downloadURL);
-          // adding imgurl to img collection
-          addImage(downloadURL);
-
-        });
-      }
-    );
-    // console.log(imgData)
 
 
 
-  }
     return (
         <>
             <div className="grid">
@@ -88,8 +88,14 @@ function ImagesAdd() {
                   </div>
 
 
-                  <button className="btn" type="submit" >Add Image</button>
+                  <button
+                    disabled = {per !== null && per<100}
+                    className={`${(per!==null && per<100)?"noneDisplay":" "} btn`} type="submit" >Add Image</button>
                 </form>
+                <div>
+                  <h4>Preview Image</h4>
+                  <img src={imgData.imgUrl} height="100" width="150"/>
+                </div>
 
 
 

@@ -5,7 +5,20 @@ import {db} from '../../firebase-config'
 
 const ViewProjects = ()=>{
 
-    const [projectData,setProjectData] = useState({});
+    const [projectData,setProjectData] = useState({
+      projectName:"",
+      fromDate:"",
+      toDate:"",
+      projectDescription:"",
+      projectImg:"",
+      projectLiveLink:"",
+      projectGithubLink:"",
+      techStack:[{name:""}],
+      projectPitcherPage:[{
+        content:"",
+        type:""
+      }]
+    });
 
     const handleInputProject = (e)=>{
       // console.log(e.target.id,e.target.value);
@@ -48,6 +61,7 @@ const ViewProjects = ()=>{
                   type="text"
                   id={`projectName`}
                   onChange = {handleInputProject}
+                  value={projectData.projectName}
                 />
               </div>
               <div className="inputCD">

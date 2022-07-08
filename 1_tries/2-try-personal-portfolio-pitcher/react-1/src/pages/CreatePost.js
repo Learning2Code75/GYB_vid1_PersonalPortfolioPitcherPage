@@ -97,15 +97,6 @@ function CreatePost() {
                 content="Project Component"
             />
 
-
-            <h1>this project - portfolio builder product</h1>
-            <div>-</div>
-            <h1>grow your business product</h1>
-            <div>-</div>
-
-            <h1>crm product </h1>
-            <div>-</div>
-
             <Projects />
 
 

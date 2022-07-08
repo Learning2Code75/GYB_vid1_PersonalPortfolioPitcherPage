@@ -47,7 +47,7 @@ function HomeAdd() {
     const [HomeCompData,setHomeCompData] = useState({
         name:"FirstName LastName",
         photo:{
-            imgUrl:"https://picsum.photos/200",
+            imgUrl:"",
             imgDesc:"Image Desc"
         },
         position:"Full Stack Webdev",
@@ -64,18 +64,18 @@ function HomeAdd() {
     const homeComponentCollectionRef = collection(db,"homeComponent");
     let homeComponentElemID = "";
     let oldhomeComponentData;
-    useEffect(()=>{
-      const getHomeComponentData = async ()=>{
-        const data = await getDocs(homeComponentCollectionRef);
-        const dataArray = await data.docs.map((doc)=>({...doc.data(), id:doc.id}));
-        const homeElem = await dataArray[0];
-        console.log(homeElem);
-        homeComponentElemID = await homeElem.id;
-        oldhomeComponentData = await homeElem;
-        await setHomeCompData(homeElem);
-      }
-      getHomeComponentData();
-    },[])
+    // useEffect(()=>{
+    //   const getHomeComponentData = async ()=>{
+    //     const data = await getDocs(homeComponentCollectionRef);
+    //     const dataArray = await data.docs.map((doc)=>({...doc.data(), id:doc.id}));
+    //     const homeElem = await dataArray[0];
+    //     console.log(homeElem);
+    //     homeComponentElemID = await homeElem.id;
+    //     oldhomeComponentData = await homeElem;
+    //     await setHomeCompData(homeElem);
+    //   }
+    //   getHomeComponentData();
+    // },[])
 
     //method to submit the state of home component data to firestore
     let navigate = useNavigate();
