@@ -269,10 +269,21 @@ nav a:hover{
 .contactCompUI1{
   padding:.5rem;
   border-radius:.5rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:1rem;
+}
+@media screen and (max-width:818px){
+  .contactCompUI1{
+  grid-template-columns: 1fr ;
+  }
 }
 .contactCompUI1 .contactCompItem{
   display:flex;
   flex-direction: column;
+  border-radius: 1rem;
+  padding: .5rem;
+
 }
 .noneDisplay{
 	display: none;

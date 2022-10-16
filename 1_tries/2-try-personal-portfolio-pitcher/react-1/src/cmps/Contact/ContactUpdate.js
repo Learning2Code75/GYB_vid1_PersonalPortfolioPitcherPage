@@ -10,10 +10,9 @@ const ContactUpdate = () => {
     githubURL: { type: "URL", data: "" },
     theme: {
       contactcompBackground: { r: 0, g: 0, b: 0, a: 100 },
-      nameTheme: "#ff00ff",
-      photoTheme: "#ffccff",
-      positionTheme: "#ffcccf",
-      personalPitchTheme: "#ffccff",
+      textColor: "#ff00ff",
+      linkColor: "#ffccff",
+      titleColor: "#ffccff",
     },
     ui: "contactCompUI1",
   });
@@ -30,7 +29,7 @@ const ContactUpdate = () => {
   };
   return (
     <div className="ContactUpdate">
-      <pre>{JSON.stringify(state, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
       <div className="createContactForm">
         <h2
           style={{
@@ -104,61 +103,48 @@ const ContactUpdate = () => {
             />
           </div>
           <div className="tgComp">
-            <h3>Name Color</h3>
-            {/* <button className="btn-sm" onClick={nameThemeChange}>Change</button> */}
-            <ChromePicker
-            // color={HomeCompData.theme.nameTheme}
-            // onChange={(newColor) =>
-            //   setHomeCompData({
-            //     ...HomeCompData,
-            //     theme: { ...HomeCompData.theme, nameTheme: newColor.hex },
-            //   })
-            // }
-            />
-          </div>
-          <div className="tgComp">
-            <h3>Position Color</h3>
+            <h3>Title Color</h3>
             {/* <button className="btn-sm" onClick={positionThemeChange}>Change</button> */}
             <ChromePicker
-            // color={HomeCompData.theme.positionTheme}
-            // onChange={(newColor) =>
-            //   setHomeCompData({
-            //     ...HomeCompData,
-            //     theme: {
-            //       ...HomeCompData.theme,
-            //       positionTheme: newColor.hex,
-            //     },
-            //   })
-            // }
+              color={state.theme.titleColor}
+              onChange={(newColor) =>
+                setState({
+                  ...state,
+                  theme: {
+                    ...state.theme,
+                    titleColor: newColor.hex,
+                  },
+                })
+              }
             />
           </div>
           <div className="tgComp">
-            <h3>Personal Pitch Color</h3>
-            {/* <button className="btn-sm" onClick={personalPitchThemeChange}>Change</button> */}
+            <h3>Text Color</h3>
+            {/* <button className="btn-sm" onClick={nameThemeChange}>Change</button> */}
             <ChromePicker
-            // color={HomeCompData.theme.personalPitchTheme}
-            // onChange={(newColor) =>
-            //   setHomeCompData({
-            //     ...HomeCompData,
-            //     theme: {
-            //       ...HomeCompData.theme,
-            //       personalPitchTheme: newColor.hex,
-            //     },
-            //   })
-            // }
+              color={state.theme.textColor}
+              onChange={(newColor) =>
+                setState({
+                  ...state,
+                  theme: { ...state.theme, textColor: newColor.hex },
+                })
+              }
             />
           </div>
           <div className="tgComp">
-            <h3>Image Border Color</h3>
-            {/* <button className="btn-sm" onClick={photoThemeChange}>Change</button> */}
+            <h3>URL Color</h3>
+            {/* <button className="btn-sm" onClick={positionThemeChange}>Change</button> */}
             <ChromePicker
-            // color={HomeCompData.theme.photoTheme}
-            // onChange={(newColor) =>
-            //   setHomeCompData({
-            //     ...HomeCompData,
-            //     theme: { ...HomeCompData.theme, photoTheme: newColor.hex },
-            //   })
-            // }
+              color={state.theme.linkColor}
+              onChange={(newColor) =>
+                setState({
+                  ...state,
+                  theme: {
+                    ...state.theme,
+                    linkColor: newColor.hex,
+                  },
+                })
+              }
             />
           </div>
 
@@ -166,33 +152,33 @@ const ContactUpdate = () => {
             <h3>Select User Interface </h3>
             <button
               className="btn-sm"
-              // onClick={() => {
-              //   setHomeCompData({ ...HomeCompData, ui: "ui1" });
-              // }}
+              onClick={() => {
+                setState({ ...state, ui: "contactCompUI1" });
+              }}
             >
               UI 1
             </button>
             <button
               className="btn-sm"
-              // onClick={() => {
-              //   setHomeCompData({ ...HomeCompData, ui: "ui2" });
-              // }}
+              onClick={() => {
+                setState({ ...state, ui: "contactCompUI2" });
+              }}
             >
               UI 2
             </button>
             <button
               className="btn-sm"
-              // onClick={() => {
-              //   setHomeCompData({ ...HomeCompData, ui: "ui3" });
-              // }}
+              onClick={() => {
+                setState({ ...state, ui: "contactCompUI3" });
+              }}
             >
               UI 3
             </button>
             <button
               className="btn-sm"
-              // onClick={() => {
-              //   setHomeCompData({ ...HomeCompData, ui: "ui4" });
-              // }}
+              onClick={() => {
+                setState({ ...state, ui: "contactCompUI4" });
+              }}
             >
               UI 4
             </button>
@@ -202,21 +188,75 @@ const ContactUpdate = () => {
           className={state.ui}
           style={{
             backgroundColor: `rgba(${state.theme.contactcompBackground.r},${state.theme.contactcompBackground.g},${state.theme.contactcompBackground.b},${state.theme.contactcompBackground.a})`,
+            color: `${state.theme.textColor}`,
           }}
         >
           <div className="contactCompItem">
-            <div>Email</div>
+            <h4
+              style={{
+                color: `${state.theme.titleColor}`,
+              }}
+            >
+              Email
+            </h4>
             <div>{state.email}</div>
           </div>
-          {/* <h1 style={{ color: `${state.theme.nameTheme}` }}>{state.name}</h1>
-          <h2 style={{ color: `${state.theme.positionTheme}` }}>
-            {state.position}
-          </h2>
-          <p style={{ color: `${state.theme.personalPitchTheme}` }}>
-            {state.personalPitch}
-          </p> */}
-
-          {/* <h3 style={{color:`${HomeCompData.theme.photoTheme}`}}>{HomeCompData.photo.imgDesc}</h3> */}
+          <div className="contactCompItem">
+            <h4
+              style={{
+                color: `${state.theme.titleColor}`,
+              }}
+            >
+              Number
+            </h4>
+            <div>{state.number}</div>
+          </div>
+          <div className="contactCompItem">
+            <h4
+              style={{
+                color: `${state.theme.titleColor}`,
+              }}
+            >
+              Address
+            </h4>
+            <div>{state.address}</div>
+          </div>
+          <div className="contactCompItem">
+            <h4
+              style={{
+                color: `${state.theme.titleColor}`,
+              }}
+            >
+              LinkedIn
+            </h4>
+            <a
+              target="__blank"
+              style={{
+                color: `${state.theme.linkColor}`,
+              }}
+              href={state.linkedInURL.data}
+            >
+              {state.linkedInURL.data}
+            </a>
+          </div>
+          <div className="contactCompItem">
+            <h4
+              style={{
+                color: `${state.theme.titleColor}`,
+              }}
+            >
+              Github
+            </h4>
+            <a
+              target="__blank"
+              style={{
+                color: `${state.theme.linkColor}`,
+              }}
+              href={state.githubURL.data}
+            >
+              {state.githubURL.data}
+            </a>
+          </div>
         </div>
       </div>
     </div>
