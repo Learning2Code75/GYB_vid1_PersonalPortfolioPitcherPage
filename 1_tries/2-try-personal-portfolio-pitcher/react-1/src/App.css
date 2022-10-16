@@ -172,21 +172,25 @@ nav a:hover{
   align-items: center;
 }
 
-.HomeAdd{
+.HomeAdd , .ContactUpdate{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width:100%;
 }
 
-.createHomeForm{
+.createHomeForm,
+.createContactForm
+{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding:.5rem;
   border-radius: .3rem;
   flex-direction: column;
-  width: auto;
+  min-width: 60vw;
+  max-width: 95vw;
   background-color: var(--white);
   box-shadow: -4px 4px 16px rgba(0,0,0,.5);
 }
@@ -194,23 +198,25 @@ nav a:hover{
 	margin-top : 2rem;
 }
 
-.createHomeForm .form-grid{
+.form-grid{
   display:flex;
   flex-direction:column;
-  width:40vw;
-  margin:.5rem 0;
+  width:100%;
+  margin:1rem 0;
 }
-.createHomeForm .form-grid .inputCD{
+.form-grid .inputCD{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: .5rem 0;
 }
 @media screen and (max-width:818px){
-  .createHomeForm .form-grid .inputCD{
+  .form-grid .inputCD{
     flex-direction: column;
+  align-items: flex-start;
   }
 
-.createHomeForm .form-grid{
+.form-grid{
   width: 80vw;
 }
 .inputCD input{
@@ -230,13 +236,13 @@ nav a:hover{
   margin-bottom:2rem;
 }
 
-.HomeView{
+.HomeView , .ContactView{
   display: flex;
   justify-content: center;
   flex-direction: column;
   width:90vw;
 }
-/* ui1 */
+/* UI : HomeComponent */
 .ui1{
   padding:.5rem;
   border-radius:.5rem;
@@ -258,6 +264,15 @@ nav a:hover{
 /* ui4 */
 .ui4{
 
+}
+/* UI : Contact Component */
+.contactCompUI1{
+  padding:.5rem;
+  border-radius:.5rem;
+}
+.contactCompUI1 .contactCompItem{
+  display:flex;
+  flex-direction: column;
 }
 .noneDisplay{
 	display: none;
