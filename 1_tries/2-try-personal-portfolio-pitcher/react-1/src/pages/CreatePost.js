@@ -8,6 +8,8 @@ import ImageAdd from "../cmps/Images/ImagesAdd";
 import ImageView from "../cmps/Images/ImagesView";
 import CreateHeader from "../cmps/CreateHeader";
 import ContactUpdate from "../cmps/Contact/ContactUpdate";
+import About from "../cmps/About/About";
+import Certificate from "../cmps/Certificate/Certificate";
 
 function CreatePost() {
   return (
@@ -22,13 +24,9 @@ function CreatePost() {
 
       <h1>Add,Update,Delete and Preview Components</h1>
       <CreateHeader content="About Component" />
-      <AboutUpdate />
+      <About />
       <CreateHeader content="Certificates Component" />
-
-      <ul>
-        <li>title, organization 1, link </li>
-        <li>title, organization 2, link </li>
-      </ul>
+      <Certificate />
 
       <CreateHeader content="Language Component" />
 

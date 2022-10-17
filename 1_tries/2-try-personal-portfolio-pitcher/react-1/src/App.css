@@ -172,7 +172,7 @@ nav a:hover{
   align-items: center;
 }
 
-.HomeAdd , .ContactUpdate{
+.HomeAdd , .ContactUpdate, .About,.Certificates{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,7 +181,9 @@ nav a:hover{
 }
 
 .createHomeForm,
-.createContactForm
+.createContactForm,
+.createAboutForm,
+.createCertificateForm
 {
   display: flex;
   justify-content: space-between;
@@ -203,6 +205,11 @@ nav a:hover{
   flex-direction:column;
   width:100%;
   margin:1rem 0;
+}
+.array-grid{
+  display:flex;
+  flex-wrap: wrap;
+  width:80%;
 }
 .form-grid .inputCD{
   display: flex;
