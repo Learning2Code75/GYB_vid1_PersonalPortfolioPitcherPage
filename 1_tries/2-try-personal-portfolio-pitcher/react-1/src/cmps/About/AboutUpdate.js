@@ -95,7 +95,7 @@ const AboutUpdate = ({ state, setState }) => {
                 className="btn"
                 onClick={(e) => addNewSkill(e)}
               >
-                <span>Add New Skill </span>
+                <span>New Skill </span>
                 <IoMdAdd style={{ fontWeight: "700" }} />
               </button>
             </div>
@@ -118,7 +118,7 @@ const AboutUpdate = ({ state, setState }) => {
                 <div>
                   <button
                     style={{
-                      padding: ".1rem .35rem",
+                      padding: "0 .4rem",
                       borderRadius: "50%",
                     }}
                     className="btn"
