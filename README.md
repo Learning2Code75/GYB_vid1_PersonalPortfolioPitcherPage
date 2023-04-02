@@ -57,7 +57,9 @@ react - 1 = keep local
 4. ui : css_snippets
 - https://youtu.be/Tkp3FDgOueM?list=PLhoNfB3WZFScWKvVE-_wdqe6_PH9LctiG
 
-
+5. webfront - 3d website
+- links to github , linkedin , react-2 , email , 1 pitcher para
+- https://youtu.be/Q7AOvWpIVHU 
 
 1. CSS cards:
    https://youtu.be/5DEq5cWNYt8 (done)
