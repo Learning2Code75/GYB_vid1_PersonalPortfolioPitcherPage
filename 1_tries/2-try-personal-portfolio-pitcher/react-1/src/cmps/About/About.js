@@ -24,7 +24,9 @@ const About = () => {
 
   return (
     <div className="About">
+      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
       <AboutUpdate state={state} setState={setState} />
+      <div>About Theme</div>
       <AboutView state={state} setState={setState} />
     </div>
   );

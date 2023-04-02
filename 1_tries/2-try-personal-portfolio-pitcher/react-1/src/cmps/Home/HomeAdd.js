@@ -336,7 +336,7 @@ HomeCompData{
         <button
           className="btn"
           onClick={() => {
-            updateHomePage(homeComponentElemID, oldhomeComponentData);
+            // updateHomePage(homeComponentElemID, oldhomeComponentData);
           }}
         >
           Confirm Changes

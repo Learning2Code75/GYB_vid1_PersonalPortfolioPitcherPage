@@ -8,18 +8,24 @@ const Certificate = () => {
       organization: "Org1",
       link: "Link1",
       other: "Other1",
+      from: "02/12/2021",
+      to: "01/01/2022",
     },
     {
       title: "Title2",
       organization: "Org2",
       link: "Link2",
       other: "Other2",
+      from: "02/12/2021",
+      to: "01/01/2022",
     },
     {
       title: "Title3",
       organization: "Org3",
       link: "Link3",
       other: "Other3",
+      from: "02/12/2021",
+      to: "01/01/2022",
     },
   ]);
   const [newCert, setNewCert] = useState({
@@ -27,6 +33,8 @@ const Certificate = () => {
     organization: "",
     link: "",
     other: "",
+    from: "",
+    to: "",
   });
   return (
     <>
@@ -55,6 +63,14 @@ const Certificate = () => {
             <div className="inputCD">
               <label>Other</label>
               <input placeholder="Enter other details" />
+            </div>
+            <div className="inputCD">
+              <label>From</label>
+              <input type="date" />
+            </div>
+            <div className="inputCD">
+              <label>To</label>
+              <input type="date" />
             </div>
             <div className="inputCD">
               <label>
