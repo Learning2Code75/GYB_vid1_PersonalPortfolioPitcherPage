@@ -41,6 +41,23 @@
      -- video guide format
 
 ## References:
+For final imple :
+1. firebase crud :
+- https://youtu.be/2hR-uWjBAgw
+- https://youtu.be/jCY6DH8F4oc
+
+2. firebase image dashboard :
+- https://youtu.be/YOAeBSCkArA
+
+3. firebase deploy :
+react - 2 = deploy
+react - 1 = keep local
+- in firebase crud vid 1
+
+4. ui : css_snippets
+- https://youtu.be/Tkp3FDgOueM?list=PLhoNfB3WZFScWKvVE-_wdqe6_PH9LctiG
+
+
 
 1. CSS cards:
    https://youtu.be/5DEq5cWNYt8 (done)
