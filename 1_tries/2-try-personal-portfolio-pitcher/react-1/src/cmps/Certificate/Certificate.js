@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
-const certLabels = ["Title", "Organization", "Link", "Other"];
+import CertificateItem from "./CertificateItem";
 const Certificate = () => {
   const [state, setState] = useState([
     {
@@ -36,6 +36,21 @@ const Certificate = () => {
     from: "",
     to: "",
   });
+  const addNewCert = () => {
+    let new_state = [...state];
+    new_state.push({
+      ...newCert,
+    });
+    setState(new_state);
+    setNewCert({
+      title: "",
+      organization: "",
+      link: "",
+      other: "",
+      from: "",
+      to: "",
+    });
+  };
   return (
     <>
       <div className="Certificates">
@@ -50,27 +65,63 @@ const Certificate = () => {
           <div className="form-grid">
             <div className="inputCD">
               <label>Title</label>
-              <input placeholder="Enter title" />
+              <input
+                placeholder="Enter title"
+                value={newCert.title}
+                onChange={(e) => {
+                  setNewCert({ ...newCert, title: e.target.value });
+                }}
+              />
             </div>
             <div className="inputCD">
               <label>Organization</label>
-              <input placeholder="Enter organization" />
+              <input
+                placeholder="Enter organization"
+                value={newCert.organization}
+                onChange={(e) => {
+                  setNewCert({ ...newCert, organization: e.target.value });
+                }}
+              />
             </div>
             <div className="inputCD">
               <label>Link</label>
-              <input placeholder="Enter link" />
+              <input
+                placeholder="Enter link"
+                value={newCert.link}
+                onChange={(e) => {
+                  setNewCert({ ...newCert, link: e.target.value });
+                }}
+              />
             </div>
             <div className="inputCD">
               <label>Other</label>
-              <input placeholder="Enter other details" />
+              <input
+                placeholder="Enter other details"
+                value={newCert.other}
+                onChange={(e) => {
+                  setNewCert({ ...newCert, other: e.target.value });
+                }}
+              />
             </div>
             <div className="inputCD">
               <label>From</label>
-              <input type="date" />
+              <input
+                type="date"
+                value={newCert.from}
+                onChange={(e) => {
+                  setNewCert({ ...newCert, from: e.target.value });
+                }}
+              />
             </div>
             <div className="inputCD">
               <label>To</label>
-              <input type="date" />
+              <input
+                type="date"
+                value={newCert.to}
+                onChange={(e) => {
+                  setNewCert({ ...newCert, to: e.target.value });
+                }}
+              />
             </div>
             <div className="inputCD">
               <label>
@@ -82,7 +133,7 @@ const Certificate = () => {
                     alignItems: "center",
                     fontSize: "1.2rem",
                   }}
-                  onClick={{}}
+                  onClick={() => addNewCert()}
                 >
                   <span>Add Certification</span> <IoMdAdd />
                 </button>
@@ -90,33 +141,16 @@ const Certificate = () => {
               <div></div>
             </div>
           </div>
-          <pre>{JSON.stringify(state, null, 2)}</pre>
-          <pre>{JSON.stringify(newCert, null, 2)}</pre>
+          {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+          {/* <pre>{JSON.stringify(newCert, null, 2)}</pre> */}
 
-          {state.map((c) => (
-            <div
-              className="form-grid"
-              style={{
-                borderBottom: "1px solid lightgrey",
-              }}
-            >
-              <div className="inputCD">
-                <label>{certLabels[0]}</label>
-                <input value={c.title} />
-              </div>
-              <div className="inputCD">
-                <label>{certLabels[1]}</label>
-                <input value={c.organization} />
-              </div>
-              <div className="inputCD">
-                <label>{certLabels[2]}</label>
-                <input value={c.link} />
-              </div>
-              <div className="inputCD">
-                <label>{certLabels[3]}</label>
-                <input value={c.other} />
-              </div>
-            </div>
+          {state.map((c, idx) => (
+            <CertificateItem
+              c={c}
+              idx={idx}
+              certs={state}
+              setCerts={setState}
+            />
           ))}
         </div>
       </div>
