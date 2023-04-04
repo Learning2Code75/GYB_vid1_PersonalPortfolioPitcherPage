@@ -10,6 +10,7 @@ import CreateHeader from "../cmps/CreateHeader";
 import ContactUpdate from "../cmps/Contact/ContactUpdate";
 import About from "../cmps/About/About";
 import Certificate from "../cmps/Certificate/Certificate";
+import Languages from "../cmps/Languages/Languages";
 
 function CreatePost() {
   return (
@@ -29,14 +30,7 @@ function CreatePost() {
       <Certificate />
 
       <CreateHeader content="Language Component" />
-
-      <ul>
-        <li>lang1 </li>
-        <li>lang2 </li>
-        <li>lang3 </li>
-        <li>lang4 </li>
-      </ul>
-
+      <Languages />
       <CreateHeader content="Interests Component" />
       <ul>
         <li>intersts1 </li>
