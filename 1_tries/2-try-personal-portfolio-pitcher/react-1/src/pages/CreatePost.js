@@ -11,6 +11,7 @@ import ContactUpdate from "../cmps/Contact/ContactUpdate";
 import About from "../cmps/About/About";
 import Certificate from "../cmps/Certificate/Certificate";
 import Languages from "../cmps/Languages/Languages";
+import Interests from "../cmps/Interests/Interests";
 
 function CreatePost() {
   return (
@@ -20,24 +21,20 @@ function CreatePost() {
       <HomeAdd />
 
       <CreateHeader content="Contact Component" />
-
       <ContactUpdate />
 
       <h1>Add,Update,Delete and Preview Components</h1>
       <CreateHeader content="About Component" />
       <About />
+
       <CreateHeader content="Certificates Component" />
       <Certificate />
 
       <CreateHeader content="Language Component" />
       <Languages />
+
       <CreateHeader content="Interests Component" />
-      <ul>
-        <li>intersts1 </li>
-        <li>intersts2 </li>
-        <li>intersts3 </li>
-        <li>intersts4 </li>
-      </ul>
+      <Interests />
 
       <CreateHeader content="Education" />
       <ul>
