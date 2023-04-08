@@ -12,6 +12,8 @@ import About from "../cmps/About/About";
 import Certificate from "../cmps/Certificate/Certificate";
 import Languages from "../cmps/Languages/Languages";
 import Interests from "../cmps/Interests/Interests";
+import Education from "../cmps/Education/Education";
+import WorkExperience from "../cmps/WorkExperience/WorkExperience";
 
 function CreatePost() {
   return (
@@ -29,6 +31,8 @@ function CreatePost() {
 
       <CreateHeader content="Certificates Component" />
       <Certificate />
+      <div>Certificates Theme</div>
+      <div>Certificates View</div>
 
       <CreateHeader content="Language Component" />
       <Languages />
@@ -37,23 +41,16 @@ function CreatePost() {
       <Interests />
 
       <CreateHeader content="Education" />
-      <ul>
-        <li>10th :CNMS date to from</li>
-        <li>12th :GPM date to from</li>
-        <li>B.Tech CSE from VIT date to from</li>
-      </ul>
+      <Education />
+      <div>Education Theme</div>
+      <div>Education View</div>
 
       <CreateHeader content="Work Experience" />
-      <ul>
-        <li>position , compnay name, date : from to, place, achievement 1</li>
-        <li>position , compnay name, date : from to, place, achievement 2</li>
-        <li>position , compnay name, date : from to, place, achievement 3</li>
-        <li>position , compnay name, date : from to, place, achievement 4</li>
-        <li>position , compnay name, date : from to, place, achievement 5</li>
-      </ul>
+      <WorkExperience />
+      <div>Work Experience Theme</div>
+      <div>Work Experience View</div>
 
       <CreateHeader content="Project Component" />
-
       <Projects />
 
       {/* : modal popup for the pitcher page :
