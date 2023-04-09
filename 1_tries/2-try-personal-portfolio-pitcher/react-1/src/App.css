@@ -82,7 +82,8 @@ nav a:hover{
   }
 }
 
-.inputCD input{
+.inputCD input,
+.inputCD select {
   padding:.5rem;
   border:none;
   border-bottom:2.5px solid var(--blue);
@@ -91,7 +92,8 @@ nav a:hover{
   transition: 300ms all ease-in-out ;
   width:80%;
 }
-.inputCD input:focus{
+.inputCD input:focus,
+.inputCD select:focus{
   outline:none;
   background-color:rgba(0,0,0,.8);
   color:var(--white);

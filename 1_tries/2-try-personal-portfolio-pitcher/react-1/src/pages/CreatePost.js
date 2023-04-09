@@ -1,9 +1,5 @@
 import React from "react";
 import HomeAdd from "../cmps/Home/HomeAdd";
-// import Certificate from '../cmps/Certificate/CertificateAdd';
-import AboutUpdate from "../cmps/About/AboutUpdate";
-import Projects from "../cmps/Projects/ViewProjects.js";
-
 import ImageAdd from "../cmps/Images/ImagesAdd";
 import ImageView from "../cmps/Images/ImagesView";
 import CreateHeader from "../cmps/CreateHeader";
@@ -14,18 +10,19 @@ import Languages from "../cmps/Languages/Languages";
 import Interests from "../cmps/Interests/Interests";
 import Education from "../cmps/Education/Education";
 import WorkExperience from "../cmps/WorkExperience/WorkExperience";
+import Projects from "../cmps/Projects/Projects";
 
 function CreatePost() {
   return (
     <div className="createPage">
-      <h1>Update and Preview Components</h1>
+      {/* <h1>Update and Preview Components</h1> */}
       <CreateHeader content="Home Component" />
       <HomeAdd />
 
       <CreateHeader content="Contact Component" />
       <ContactUpdate />
 
-      <h1>Add,Update,Delete and Preview Components</h1>
+      {/* <h1>Add,Update,Delete and Preview Components</h1> */}
       <CreateHeader content="About Component" />
       <About />
 
@@ -52,18 +49,10 @@ function CreatePost() {
 
       <CreateHeader content="Project Component" />
       <Projects />
-
-      {/* : modal popup for the pitcher page :
-              <CreateHeader
-                  content="Pitcher Page for Project x"
-              />
-              <ul>
-                  <li> (all of work card) + [title,subtitle, image, text, list, link] </li>
-              </ul>
-
-              <h1>Add,Update,Delete and View Components</h1>
-
-            */}
+      <div>Project Theme</div>
+      <div>Project View</div>
+      <div>Pitcherpage Theme</div>
+      <div>Pitcherpage View</div>
 
       <CreateHeader content="Images Component" />
       <ImageAdd />
