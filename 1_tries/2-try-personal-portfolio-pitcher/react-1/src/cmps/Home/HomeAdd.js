@@ -56,11 +56,11 @@ function HomeAdd() {
     position: "Full Stack Webdev",
     personalPitch: "personal pitch paragraph is this paragraph",
     theme: {
-      homecompBackground: { r: 0, g: 0, b: 0, a: 100 },
-      nameTheme: "#ff00ff",
-      photoTheme: "#ffccff",
-      positionTheme: "#ffcccf",
-      personalPitchTheme: "#ffccff",
+      homecompBackground: { r: 13, g: 32, b: 108, a: 100 },
+      nameTheme: "#00ccff",
+      photoTheme: "#00ccff",
+      positionTheme: "#00cccf",
+      personalPitchTheme: "#00ccff",
     },
     ui: "ui1",
   });
