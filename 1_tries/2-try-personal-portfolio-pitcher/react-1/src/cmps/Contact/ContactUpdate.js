@@ -3,14 +3,14 @@ import { ChromePicker, SketchPicker } from "react-color";
 
 const ContactUpdate = () => {
   const [state, setState] = useState({
-    email: "",
-    number: "",
-    address: "",
-    linkedInURL: { type: "URL", data: "" },
-    githubURL: { type: "URL", data: "" },
+    email: "email1@gmail.com",
+    number: "182818192",
+    address: "Addr 1  , adfajd;aas , ada dfadf ad.",
+    linkedInURL: { type: "URL", data: "linkedin.com" },
+    githubURL: { type: "URL", data: "github.com" },
     theme: {
       contactcompBackground: { r: 0, g: 0, b: 0, a: 100 },
-      textColor: "#ff00ff",
+      textColor: "#8686C6",
       linkColor: "#ffccff",
       titleColor: "#ffccff",
     },

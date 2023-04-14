@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 import CertificateItem from "./CertificateItem";
+import CertificateTheme from "./CertificateTheme";
+import CertificateView from "./CertificateView";
 const Certificate = () => {
   const [state, setState] = useState([
     {
@@ -153,6 +155,8 @@ const Certificate = () => {
             />
           ))}
         </div>
+        <CertificateTheme state={state} setState={setState} />
+        <CertificateView state={state} setState={setState} />
       </div>
     </>
   );

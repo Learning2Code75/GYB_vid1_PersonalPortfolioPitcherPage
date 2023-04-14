@@ -336,3 +336,53 @@ nav a:hover{
 .noneDisplay{
 	display: none;
 }
+
+/* UI : About Component */
+.aboutCompUI1{
+  padding:.5rem;
+  border-radius:.5rem;
+  display:grid;
+  grid-template-columns: 1fr ;
+  grid-gap:1rem;
+
+}
+@media screen and (max-width:818px){
+  .aboutCompUI1{
+  grid-template-columns: 1fr ;
+  }
+}
+
+.aboutCompUI1 .aboutGrid1{
+  padding:.5rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:1rem;
+}
+
+@media screen and (max-width:818px){
+  .aboutCompUI1 .aboutGrid1{
+  grid-template-columns: 1fr ;
+  }
+}
+
+.aboutCompUI1 .aboutGrid2{
+  padding:.5rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  grid-gap:1rem;
+}
+
+.aboutGrid2Item{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@media screen and (max-width:818px){
+  .aboutCompUI1 .aboutGrid2{
+  grid-template-columns: 1fr ;
+  justify-items: flex-start;
+  }
+}

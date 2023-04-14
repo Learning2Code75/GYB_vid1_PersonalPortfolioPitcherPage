@@ -28,8 +28,6 @@ function CreatePost() {
 
       <CreateHeader content="Certificates Component" />
       <Certificate />
-      <div>Certificates Theme</div>
-      <div>Certificates View</div>
 
       <CreateHeader content="Language Component" />
       <Languages />
