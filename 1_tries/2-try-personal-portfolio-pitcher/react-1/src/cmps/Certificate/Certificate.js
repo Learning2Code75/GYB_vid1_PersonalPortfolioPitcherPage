@@ -30,6 +30,15 @@ const Certificate = () => {
       to: "01/01/2022",
     },
   ]);
+  const [certTheme, setCertTheme] = useState({
+    theme: {
+      certCompBackground: { r: 13, g: 32, b: 108, a: 100 },
+      textColor: "#00ccff",
+      linkColor: "#ffccff",
+      titleColor: "#ff11ff",
+    },
+    ui: "certCompUI1",
+  });
   const [newCert, setNewCert] = useState({
     title: "",
     organization: "",
@@ -155,8 +164,14 @@ const Certificate = () => {
             />
           ))}
         </div>
-        <CertificateTheme state={state} setState={setState} />
-        <CertificateView state={state} setState={setState} />
+        <div className="ContactView">
+          <CertificateTheme state={certTheme} setState={setCertTheme} />
+          <CertificateView
+            state={certTheme}
+            setState={setCertTheme}
+            data={state}
+          />
+        </div>
       </div>
     </>
   );

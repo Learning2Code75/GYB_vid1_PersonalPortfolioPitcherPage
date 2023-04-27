@@ -344,7 +344,6 @@ nav a:hover{
   display:grid;
   grid-template-columns: 1fr ;
   grid-gap:1rem;
-
 }
 @media screen and (max-width:818px){
   .aboutCompUI1{
@@ -386,3 +385,145 @@ nav a:hover{
   justify-items: flex-start;
   }
 }
+
+/* UI : Certificate Component */
+.certCompUI1{
+  padding:.5rem;
+  border-radius:.5rem;
+  display:grid;
+  grid-template-columns: 1fr ;
+  grid-gap:1rem;
+}
+.certCompUI1 .certGrid1{
+  padding:.5rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:1rem;
+}
+
+@media screen and (max-width:818px){
+  .certCompUI1 .certGrid1{
+  grid-template-columns: 1fr ;
+  }
+}
+
+.certGrid1Item{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 1rem;
+  padding:1rem;
+}
+
+/* UI : Lang Component */
+.langCompUI1{
+  padding:.5rem;
+  border-radius:.5rem;
+  display:grid;
+  grid-template-columns: 1fr ;
+  grid-gap:1rem;
+}
+.langCompUI1 .langGrid1{
+  padding:.5rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:1rem;
+  justify-items:flex-start;
+}
+
+@media screen and (max-width:818px){
+  .langCompUI1 .langGrid1{
+  grid-template-columns: 1fr ;
+  }
+}
+
+.langGrid1Item{
+  display:flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* align-items: flex-start; */
+  border-radius: 1rem;
+  padding:1rem;
+}
+
+.langCompUI1 .langGrid2{
+  padding:.5rem;
+  display:grid;
+  grid-template-columns: 1fr ;
+  grid-gap:1rem;
+  justify-items: flex-start;
+}
+
+.langGrid2Item{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* UI : Interests Component */
+.interestsCompUI1{
+  padding:.5rem;
+  border-radius:.5rem;
+  display:grid;
+  grid-template-columns: 1fr ;
+  grid-gap:1rem;
+}
+
+.interestsCompUI1 .interestsGrid1{
+  padding:.5rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:1rem;
+  justify-items:flex-start;
+}
+
+@media screen and (max-width:818px){
+  .interestsCompUI1 .interestsGrid1{
+  grid-template-columns: 1fr ;
+  }
+}
+
+.interestsGrid1Item{
+  display:flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* align-items: flex-start; */
+  border-radius: 1rem;
+  padding:1rem;
+}
+
+
+/* UI : Education Compomenet */
+.eduCompUI1{
+  padding:.5rem;
+  border-radius:.5rem;
+  display:grid;
+  grid-template-columns: 1fr ;
+  grid-gap:1rem;
+}
+
+.eduCompUI1 .eduGrid1{
+  padding:.5rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:1rem;
+}
+
+@media screen and (max-width:818px){
+  .eduCompUI1 .eduGrid1{
+  grid-template-columns: 1fr ;
+  }
+}
+
+.eduGrid1Item{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 1rem;
+  padding:1rem;
+}
+
+/* UI : Work Experience Component */

@@ -1,27 +1,26 @@
 import React from "react";
 import { ChromePicker, SketchPicker } from "react-color";
 
-const CertificateTheme = ({ state, setState }) => {
+const EducationTheme = ({ state, setState }) => {
   return (
     <div className="themeGrid">
       <div className="tgComp">
-        <h3>About Background</h3>
+        <h3>Education Background</h3>
         {/* <button className="btn-sm" onClick={homeThemeChange}>Change</button> */}
         <SketchPicker
-          color={state.theme.certCompBackground}
+          color={state.theme.eduCompBackground}
           onChange={(newColor) => {
             setState({
               ...state,
               theme: {
                 ...state.theme,
-                certCompBackground: newColor.rgb,
+                eduCompBackground: newColor.rgb,
               },
             });
             // console.log(HomeCompData)
           }}
         />
       </div>
-
       <div className="tgComp">
         <h3>Title Color</h3>
         {/* <button className="btn-sm" onClick={positionThemeChange}>Change</button> */}
@@ -38,7 +37,6 @@ const CertificateTheme = ({ state, setState }) => {
           }
         />
       </div>
-
       <div className="tgComp">
         <h3>Text Color</h3>
         {/* <button className="btn-sm" onClick={nameThemeChange}>Change</button> */}
@@ -53,7 +51,7 @@ const CertificateTheme = ({ state, setState }) => {
         />
       </div>
       <div className="tgComp">
-        <h3>URL Color</h3>
+        <h3>Link Color</h3>
         {/* <button className="btn-sm" onClick={nameThemeChange}>Change</button> */}
         <ChromePicker
           color={state.theme.linkColor}
@@ -65,13 +63,12 @@ const CertificateTheme = ({ state, setState }) => {
           }
         />
       </div>
-
       <div className="tgComp">
         <h3>Select User Interface </h3>
         <button
           className="btn-sm"
           onClick={() => {
-            setState({ ...state, ui: "certCompUI1" });
+            setState({ ...state, ui: "eduCompUI1" });
           }}
         >
           UI 1
@@ -79,7 +76,7 @@ const CertificateTheme = ({ state, setState }) => {
         <button
           className="btn-sm"
           onClick={() => {
-            setState({ ...state, ui: "certCompUI2" });
+            setState({ ...state, ui: "eduCompUI2" });
           }}
         >
           UI 2
@@ -87,7 +84,7 @@ const CertificateTheme = ({ state, setState }) => {
         <button
           className="btn-sm"
           onClick={() => {
-            setState({ ...state, ui: "certCompUI3" });
+            setState({ ...state, ui: "eduCompUI3" });
           }}
         >
           UI 3
@@ -95,7 +92,7 @@ const CertificateTheme = ({ state, setState }) => {
         <button
           className="btn-sm"
           onClick={() => {
-            setState({ ...state, ui: "certCompUI4" });
+            setState({ ...state, ui: "eduCompUI4" });
           }}
         >
           UI 4
@@ -105,4 +102,4 @@ const CertificateTheme = ({ state, setState }) => {
   );
 };
 
-export default CertificateTheme;
+export default EducationTheme;

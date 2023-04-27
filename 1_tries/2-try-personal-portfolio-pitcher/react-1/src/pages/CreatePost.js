@@ -37,13 +37,9 @@ function CreatePost() {
 
       <CreateHeader content="Education" />
       <Education />
-      <div>Education Theme</div>
-      <div>Education View</div>
 
       <CreateHeader content="Work Experience" />
       <WorkExperience />
-      <div>Work Experience Theme</div>
-      <div>Work Experience View</div>
 
       <CreateHeader content="Project Component" />
       <Projects />
