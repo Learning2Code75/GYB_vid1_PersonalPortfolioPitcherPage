@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChromePicker, SketchPicker } from "react-color";
+import { doc, updateDoc, getDocs, collection } from "firebase/firestore";
+import { db } from "../../firebase-config";
 
 const ContactUpdate = () => {
   const [state, setState] = useState({
@@ -27,6 +29,27 @@ const ContactUpdate = () => {
     new_state.githubURL.data = e.target.value;
     setState(new_state);
   };
+  const contactCompCollectionRef = collection(db, "contactComponent");
+  const getContactComp = async () => {
+    try {
+      const data = await getDocs(contactCompCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setState(filteredData[0]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const editContactCompData = async () => {
+    const contactDoc = doc(db, "contactComponent", state?.id);
+    await updateDoc(contactDoc, state);
+    await getContactComp();
+  };
+  useEffect(() => {
+    getContactComp();
+  }, []);
   return (
     <div className="ContactUpdate">
       {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
@@ -258,6 +281,17 @@ const ContactUpdate = () => {
             </a>
           </div>
         </div>
+      </div>
+      <div className="submit-div">
+        <h3>Confirm Data , Theme , UI </h3>
+        <button
+          className="btn"
+          onClick={() => {
+            editContactCompData();
+          }}
+        >
+          Confirm Changes
+        </button>
       </div>
     </div>
   );

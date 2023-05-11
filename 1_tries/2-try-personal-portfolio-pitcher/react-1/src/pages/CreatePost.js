@@ -43,10 +43,6 @@ function CreatePost() {
 
       <CreateHeader content="Project Component" />
       <Projects />
-      <div>Project Theme</div>
-      <div>Project View</div>
-      <div>Pitcherpage Theme</div>
-      <div>Pitcherpage View</div>
 
       <CreateHeader content="Images Component" />
       <ImageAdd />

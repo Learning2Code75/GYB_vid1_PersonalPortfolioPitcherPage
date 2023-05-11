@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 import CertificateItem from "./CertificateItem";
 import WorkExperienceTheme from "./WorkExperienceTheme";
 import WorkExperienceView from "./WorkExperienceView";
+import { doc, updateDoc, getDocs, collection } from "firebase/firestore";
+import { db } from "../../firebase-config";
 const WorkExperience = () => {
   const [state, setState] = useState([
     {
@@ -28,8 +30,8 @@ const WorkExperience = () => {
     theme: {
       workexpCompBackground: { r: 13, g: 32, b: 108, a: 100 },
       textColor: "#00ccff",
-      linkColor: "#00ccff",
-      titleColor: "#00ccff",
+      linkColor: "#ffffff",
+      titleColor: "#ffccff",
     },
     ui: "workexpCompUI1",
   });
@@ -58,6 +60,35 @@ const WorkExperience = () => {
       to: "",
     });
   };
+  const [workexpId, setWorkexpId] = useState("");
+
+  const workexpCompCollectionRef = collection(db, "workexpComponent");
+  const getWorkexpComp = async () => {
+    try {
+      const data = await getDocs(workexpCompCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setState(filteredData[0].compData);
+      setWorkexpTheme(filteredData[0].compTheme);
+      setWorkexpId(filteredData[0].id);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const editWorkexpCompData = async () => {
+    const workexpDoc = doc(db, "workexpComponent", workexpId);
+    let new_cert_data = {
+      compData: [...state],
+      compTheme: { ...workexpTheme },
+    };
+    await updateDoc(workexpDoc, new_cert_data);
+    await getWorkexpComp();
+  };
+  useEffect(() => {
+    getWorkexpComp();
+  }, []);
   return (
     <>
       {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
@@ -175,6 +206,17 @@ const WorkExperience = () => {
         </div>
         <WorkExperienceTheme state={workexpTheme} setState={setWorkexpTheme} />
         <WorkExperienceView data={state} state={workexpTheme} />
+        <div className="submit-div">
+          <h3>Confirm Data , Theme , UI </h3>
+          <button
+            className="btn"
+            onClick={() => {
+              editWorkexpCompData();
+            }}
+          >
+            Confirm Changes
+          </button>
+        </div>
       </div>
     </>
   );

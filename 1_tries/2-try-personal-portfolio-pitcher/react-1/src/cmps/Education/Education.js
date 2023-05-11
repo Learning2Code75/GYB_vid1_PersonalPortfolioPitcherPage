@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 import CertificateItem from "./CertificateItem";
 import EducationTheme from "./EducationTheme";
 import EducationView from "./EducationView";
+
+import { doc, updateDoc, getDocs, collection } from "firebase/firestore";
+import { db } from "../../firebase-config";
 const Education = () => {
   const [state, setState] = useState([
     {
@@ -46,6 +49,34 @@ const Education = () => {
       to: "",
     });
   };
+  const [eduId, setEduId] = useState("");
+  const educationCompCollectionRef = collection(db, "educationComponent");
+  const getEducationComp = async () => {
+    try {
+      const data = await getDocs(educationCompCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setState(filteredData[0].compData);
+      setEduTheme(filteredData[0].compTheme);
+      setEduId(filteredData[0].id);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const editEducationCompData = async () => {
+    const certificateDoc = doc(db, "educationComponent", eduId);
+    let new_cert_data = {
+      compData: [...state],
+      compTheme: { ...eduTheme },
+    };
+    await updateDoc(certificateDoc, new_cert_data);
+    await getEducationComp();
+  };
+  useEffect(() => {
+    getEducationComp();
+  }, []);
   return (
     <>
       {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
@@ -153,6 +184,18 @@ const Education = () => {
         </div>
         <EducationTheme state={eduTheme} setState={setEduTheme} />
         <EducationView state={eduTheme} data={state} />
+
+        <div className="submit-div">
+          <h3>Confirm Data , Theme , UI </h3>
+          <button
+            className="btn"
+            onClick={() => {
+              editEducationCompData();
+            }}
+          >
+            Confirm Changes
+          </button>
+        </div>
       </div>
     </>
   );

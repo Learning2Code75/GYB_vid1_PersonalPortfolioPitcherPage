@@ -527,3 +527,62 @@ nav a:hover{
 }
 
 /* UI : Work Experience Component */
+.workexpCompUI1{
+  padding:.5rem;
+  border-radius:.5rem;
+  display:grid;
+  grid-template-columns: 1fr ;
+  grid-gap:1rem;
+}
+.workexpCompUI1 .workexpGrid1{
+  padding:.5rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:1rem;
+}
+
+@media screen and (max-width:818px){
+  .workexpCompUI1 .workexpGrid1{
+  grid-template-columns: 1fr ;
+  }
+}
+
+.workexpGrid1Item{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 1rem;
+  padding:1rem;
+}
+
+/* UI : Project Component */
+.projectCompUI1{
+  width:100%;
+  padding:.5rem;
+  border-radius:.5rem;
+  display:grid;
+  grid-template-columns: 1fr ;
+  grid-gap:1rem;
+}
+.projectCompUI1 .projectCompGrid1{
+  padding:.5rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:1rem;
+}
+
+@media screen and (max-width:818px){
+  .workexpCompUI1 .projectCompGrid1{
+  grid-template-columns: 1fr ;
+  }
+}
+
+.projectCompGrid1Item{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 1rem;
+  padding:1rem;
+}

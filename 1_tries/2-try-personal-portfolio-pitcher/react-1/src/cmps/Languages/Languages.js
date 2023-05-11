@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LanguagesTheme from "./LanguagesTheme";
 import LanguagesUpdate from "./LanguagesUpdate";
 import LanguagesView from "./LanguagesView";
+import { doc, updateDoc, getDocs, collection } from "firebase/firestore";
+import { db } from "../../firebase-config";
 
 const Languages = () => {
   const [state, setState] = useState({
@@ -27,6 +29,28 @@ const Languages = () => {
     ui: "langCompUI1",
   });
 
+  const languageCompCollectionRef = collection(db, "languageComponent");
+  const getLanguageComp = async () => {
+    try {
+      const data = await getDocs(languageCompCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setState(filteredData[0]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const editLanguageCompData = async () => {
+    const languageDoc = doc(db, "languageComponent", state?.id);
+    await updateDoc(languageDoc, state);
+    await getLanguageComp();
+  };
+  useEffect(() => {
+    getLanguageComp();
+  }, []);
+
   return (
     <div className="About">
       {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
@@ -34,6 +58,17 @@ const Languages = () => {
       <div className="ContactView">
         <LanguagesTheme state={state} setState={setState} />
         <LanguagesView state={state} />
+      </div>
+      <div className="submit-div">
+        <h3>Confirm Data , Theme , UI </h3>
+        <button
+          className="btn"
+          onClick={() => {
+            editLanguageCompData();
+          }}
+        >
+          Confirm Changes
+        </button>
       </div>
     </div>
   );

@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { SketchPicker } from "react-color";
 import { ChromePicker } from "react-color";
-import {
-  doc,
-  updateDoc,
-  addDoc,
-  getDocs,
-  collection,
-} from "firebase/firestore";
+import { doc, updateDoc, getDocs, collection } from "firebase/firestore";
 import { db } from "../../firebase-config";
 import { useNavigate } from "react-router-dom";
 
@@ -64,66 +58,27 @@ function HomeAdd() {
     },
     ui: "ui1",
   });
-  const homeComponentCollectionRef = collection(db, "homeComponent");
-  let homeComponentElemID = "";
-  let oldhomeComponentData;
-  //   const getHomeComponentData = async () => {
-  //     const data = await getDocs(homeComponentCollectionRef);
-  //     const dataArray = await data.docs.map((doc) => ({
-  //       ...doc.data(),
-  //       id: doc.id,
-  //     }));
-  //     const homeElem = await dataArray[0];
-  //     console.log(homeElem);
-  //     homeComponentElemID = await homeElem.id;
-  //     oldhomeComponentData = await homeElem;
-  //     await setHomeCompData(homeElem);
-  //   };
-  //   useEffect(() => {
-  //     getHomeComponentData();
-  //   }, []);
-
-  //method to submit the state of home component data to firestore
-  let navigate = useNavigate();
-
-  const updateHomePage = async (homeComponentElemID, oldhomeComponentData) => {
-    const homeCompDoc = doc(
-      collection(db, "homeComponent", homeComponentElemID)
-    );
-    const { name, photo, position, personalPitch, theme, ui } = HomeCompData;
-    await updateDoc(homeCompDoc, {
-      name,
-      photo,
-      position,
-      personalPitch,
-      theme,
-      ui,
-    });
-    // getHomeComponentData();
-
-    navigate("/");
+  const homeCompCollectionRef = collection(db, "homeComponent");
+  const getHomeComp = async () => {
+    try {
+      const data = await getDocs(homeCompCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setHomeCompData(filteredData[0]);
+    } catch (err) {
+      console.error(err);
+    }
   };
-  /*
-HomeCompData{
-    name:"FirstName LastName",
-    photo:{
-        imgUrl:"https://picsum.photos/200",
-        imgDesc:"Image Desc"
-    },
-    position:"Full Stack Webdev",
-    personalPitch:"personal pitch paragraph is this paragraph",
-    theme:{
-        homecompBackground:{r:0,g:0,b:0,a:100},
-        nameTheme:"#ffccff",
-        photoTheme:"#ffccff",
-        positionTheme:"#ffcccf",
-        personalPitchTheme:"#ffccff"
-    },
-    ui:"ui1"
-}
-
-*/
-
+  const editHomeCompData = async () => {
+    const homeDoc = doc(db, "homeComponent", HomeCompData?.id);
+    await updateDoc(homeDoc, HomeCompData);
+    await getHomeComp();
+  };
+  useEffect(() => {
+    getHomeComp();
+  }, []);
   return (
     <div className="HomeAdd">
       <div className="createHomeForm">
@@ -180,6 +135,7 @@ HomeCompData{
                   photo: { ...HomeCompData.photo, imgUrl: e.target.value },
                 });
               }}
+              value={HomeCompData.photo.imgUrl}
             ></input>
           </div>
           {/* <div className="inputCD">
@@ -321,14 +277,17 @@ HomeCompData{
           </p>
           <img
             src={HomeCompData.photo.imgUrl}
-            style={{ border: `2px solid ${HomeCompData.theme.photoTheme}` }}
+            alt="img"
+            style={{
+              border: `2px solid ${HomeCompData.theme.photoTheme}`,
+              height: "350px",
+              width: "300px",
+            }}
           />
           {/* <h3 style={{color:`${HomeCompData.theme.photoTheme}`}}>{HomeCompData.photo.imgDesc}</h3> */}
         </div>
 
-        {/* {<pre>
-                {JSON.stringify(HomeCompData, null, 2)}
-            </pre>} */}
+        {/* {<pre>{JSON.stringify(HomeCompData, null, 2)}</pre>} */}
       </div>
 
       <div className="submit-div">
@@ -336,7 +295,7 @@ HomeCompData{
         <button
           className="btn"
           onClick={() => {
-            // updateHomePage(homeComponentElemID, oldhomeComponentData);
+            editHomeCompData();
           }}
         >
           Confirm Changes

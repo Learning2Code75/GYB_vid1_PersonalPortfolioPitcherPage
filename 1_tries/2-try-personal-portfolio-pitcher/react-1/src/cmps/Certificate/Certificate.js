@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 import CertificateItem from "./CertificateItem";
 import CertificateTheme from "./CertificateTheme";
 import CertificateView from "./CertificateView";
+import { doc, updateDoc, getDocs, collection } from "firebase/firestore";
+import { db } from "../../firebase-config";
+
 const Certificate = () => {
   const [state, setState] = useState([
     {
@@ -62,6 +65,38 @@ const Certificate = () => {
       to: "",
     });
   };
+
+  const [certId, setCertId] = useState("");
+
+  const certificateCompCollectionRef = collection(db, "certificateComponent");
+  const getCertificateComp = async () => {
+    try {
+      const data = await getDocs(certificateCompCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setState(filteredData[0].compData);
+      setCertTheme(filteredData[0].compTheme);
+      setCertId(filteredData[0].id);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const editCertificateCompData = async () => {
+    const certificateDoc = doc(db, "certificateComponent", certId);
+    let new_cert_data = {
+      compData: [...state],
+      compTheme: { ...certTheme },
+    };
+    await updateDoc(certificateDoc, new_cert_data);
+    await getCertificateComp();
+  };
+
+  useEffect(() => {
+    getCertificateComp();
+  }, []);
+
   return (
     <>
       <div className="Certificates">
@@ -171,6 +206,17 @@ const Certificate = () => {
             setState={setCertTheme}
             data={state}
           />
+        </div>
+        <div className="submit-div">
+          <h3>Confirm Data , Theme , UI </h3>
+          <button
+            className="btn"
+            onClick={() => {
+              editCertificateCompData();
+            }}
+          >
+            Confirm Changes
+          </button>
         </div>
       </div>
     </>

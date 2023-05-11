@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InterestsTheme from "./InterestsTheme";
 import InterestsUpdate from "./InterestsUpdate";
 import InterestsView from "./InterestsView";
+import { doc, updateDoc, getDocs, collection } from "firebase/firestore";
+import { db } from "../../firebase-config";
 
 const Interests = () => {
   const [state, setState] = useState({
@@ -30,6 +32,28 @@ const Interests = () => {
     },
     ui: "interestsCompUI1",
   });
+  const interestsCompCollectionRef = collection(db, "interestsComponent");
+  const getInterestsComp = async () => {
+    try {
+      const data = await getDocs(interestsCompCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setState(filteredData[0]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const editInterestsCompData = async () => {
+    const interestsDoc = doc(db, "interestsComponent", state?.id);
+    await updateDoc(interestsDoc, state);
+    await getInterestsComp();
+  };
+
+  useEffect(() => {
+    getInterestsComp();
+  }, []);
 
   return (
     <div className="About">
@@ -38,6 +62,17 @@ const Interests = () => {
       <div className="ContactView">
         <InterestsTheme state={state} setState={setState} />
         <InterestsView state={state} />
+      </div>
+      <div className="submit-div">
+        <h3>Confirm Data , Theme , UI </h3>
+        <button
+          className="btn"
+          onClick={() => {
+            editInterestsCompData();
+          }}
+        >
+          Confirm Changes
+        </button>
       </div>
     </div>
   );

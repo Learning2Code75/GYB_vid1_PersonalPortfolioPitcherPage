@@ -250,7 +250,13 @@ function App() {
           >
             {projectsComp.map((pj) => (
               <>
-                <div>{pj.projectName}</div>
+                <div>{pj?.projectName}</div>
+                <div>{pj?.fromDate}</div>
+                <div>{pj?.toDate}</div>
+                <div>{pj?.projectDescription}</div>
+                <div>{pj?.projectImg}</div>
+                <div>{pj?.projectLiveLink}</div>
+                <div>{pj?.projectGithubLink}</div>
                 <button
                   onClick={() => {
                     setNewCert(pj);
